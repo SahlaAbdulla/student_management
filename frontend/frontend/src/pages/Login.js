@@ -11,7 +11,7 @@ function Login(){
 
   const handleLogin = ()=>{
 
-    axios.post("http://127.0.0.1:8000/api/token/",{
+    axios.post("token/",{
       username: username,
       password: password
     })
