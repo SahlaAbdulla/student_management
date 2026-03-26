@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import { useNavigate } from "react-router-dom";
 
 function Login(){
@@ -11,7 +11,7 @@ function Login(){
 
   const handleLogin = ()=>{
 
-    axios.post("token/",{
+    API.post("token/", {
       username: username,
       password: password
     })
