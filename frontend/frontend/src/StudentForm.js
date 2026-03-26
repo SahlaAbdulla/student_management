@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API from "../src/api";
 
 function StudentForm(){
 
@@ -12,16 +12,14 @@ function StudentForm(){
 
  const submitStudent = async () => {
 
-   await axios.post("http://127.0.0.1:8000/api/students/",{
-     name:name,
-     email:email,
-     course:course
+   await API.post("students/",{
+     name,
+     email,
+     course
    });
 
-  //  alert("Student Added");
-
-   navigate("/students");   // 👈 redirect to student list
-
+   navigate("/students");
+   window.location.reload(); // optional but useful
  };
 
  return(

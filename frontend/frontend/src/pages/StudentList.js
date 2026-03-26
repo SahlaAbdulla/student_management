@@ -12,11 +12,18 @@ function StudentList(){
  },[]);
 
  const loadStudents = ()=>{
-   API.get("students/")   // ✅ changed
-   .then(res=>{
-     setStudents(res.data);
-   });
- };
+  API.get("students/")
+  .then(res=>{
+
+    // 🔥 FIX HERE
+    if(res.data.results){
+      setStudents(res.data.results);
+    }else{
+      setStudents(res.data);
+    }
+
+  });
+};
 
  const deleteStudent = (id)=>{
 
